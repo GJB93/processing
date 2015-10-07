@@ -26,6 +26,23 @@ void draw()
   b = random(256);
   //background(0, r, g);
   background(127);
+
+  drawBits();
+  //Calling the binary to decimal converter using the bit array and setting an int variable
+  number = binaryToDecimal(bits);
+  
+  //Calling the decimal to binary converter using the number found to return the value as a string
+  binary = decimalToBinary(number);
+  
+  //Writing the decimal and binary values to the screen
+  fill(255);
+  text(number, centX, 100);
+  text(number + " is " + binary + " in binary.", centX-50, 150);
+  
+}//end draw
+
+void drawBits()
+{
   int c = 0;
   
   //Counting up for each edge
@@ -52,19 +69,7 @@ void draw()
     }//end else
     c++;
   }//end for
-
-  //Calling the binary to decimal converter using the bit array and setting an int variable
-  number = binaryToDecimal(bits);
-  
-  //Calling the decimal to binary converter using the number found to return the value as a string
-  binary = decimalToBinary(number);
-  
-  //Writing the decimal and binary values to the screen
-  fill(255);
-  text(number, centX, 100);
-  text(number + " is " + binary + " in binary.", centX-50, 150);
-  
-}//end draw
+}
 
 //Function to convert a binary value to decimal
 int binaryToDecimal(boolean[] bits)
