@@ -38,8 +38,6 @@ void draw()
   background(127);
   directionalLight(r,g,b, 500,500,500);
   camera(X,Y,Z,250.0,250.0,0.0,0.0,1.0,0.0);
-  if(xStart<500)
-    xStart+=random(11);
   translate(xStart, yStart,0);
   sphere(100);
   /*

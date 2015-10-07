@@ -1,6 +1,6 @@
 void setup()
 {
-  size(500, 500);
+  size(1920, 1080);
   
   stroke(255);
   fill(0);
