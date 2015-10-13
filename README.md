@@ -1,2 +1,2 @@
 # Processing
-Getting started with Processing. Lab work, work done in lectures, and also small projects that I've attempted for experimentation.
+This is a repository for the sketches I created using Processing throughout my second year of Computer Science in Dublin Institute of Technology.
