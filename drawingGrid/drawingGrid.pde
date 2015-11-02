@@ -63,6 +63,13 @@ void mouseDragged()
 
 void mousePressed()
 {
+  if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height)
+    {
+      int ledsX = (int)(mouseX/sqS);
+      int ledsY = (int)(mouseY/sqS);
+      leds[ledsY][ledsX] = !leds[ledsY][ledsX];
+    }//end if
+  /*
   int c = 0;
   int d = 0;
   
@@ -82,5 +89,6 @@ void mousePressed()
     }
     d++;
   }//end for
+  */
    
 }//end mousePressed

@@ -3,7 +3,7 @@ boolean[] bits = new boolean[numOfBits];
 int centX, centY;
 int number;
 String binary;
-int sqInc;
+float sqInc;
 float r, g, b;
 
 
@@ -14,7 +14,7 @@ void setup()
   centY = height / 2;
   
   //Setting the width/height of the squares depending on the number of bits
-  sqInc = width/numOfBits;
+  sqInc = width/ (float)bits.length;
 }
 
 
@@ -52,7 +52,9 @@ void drawBits()
     if(bits[c])
     {
       //fill(0,b,g);
-      fill(0);
+      int col = 255/bits.length;
+      int red = col*c;
+      fill(red, 0, 0);
       rect(x, centY, x+sqInc, sqInc);
       //fill(0,g,b);
       fill(255);
@@ -77,10 +79,10 @@ int binaryToDecimal(boolean[] bits)
   int ret = 0;
 
   //For each bit
-  for(int i=0; i<numOfBits; i++)
+  for(int i=0; i<bits.length; i++)
   {
     //Reverse the position number
-    int pos = (numOfBits - 1) - i;
+    int pos = (bits.length - 1) - i;
     
     //If the bit is true, add the value of 2 to the power of the current position to our return value
     if (bits[i])
@@ -147,8 +149,13 @@ String decimalToBinary(int number)
 
 void mousePressed()
 {
-  int c = 0;
+  if(mouseX > 0 && mouseX < width && mouseY > centY && mouseY < centY + sqInc)
+    {
+      int bit = (int)(mouseX/sqInc);
+      bits[bit] = !bits[bit];
+    }//end if
   
+  /*
   //For each square
   for(int i=0; i<width-sqInc; i+= sqInc)
   {
@@ -160,5 +167,6 @@ void mousePressed()
     //Increment the counter
     c++;
   }//end for
+  */
    
 }//end mousePressed
